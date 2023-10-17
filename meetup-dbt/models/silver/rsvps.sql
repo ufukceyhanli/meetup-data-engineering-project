@@ -15,7 +15,7 @@ transfromed AS (
     SELECT
         {{ dbt_utils.generate_surrogate_key(['EventId', 'rsvps.user_id']) }} AS RsvpId,
         EventId,
-        rsvps.user_id::timestamp AS UserId,
+        rsvps.user_id::string AS UserId,
         rsvps.guests AS Guests,
         rsvps.response::boolean AS Response,
         from_unixtime(LEFT(rsvps.when, 10), 'yyyy-MM-dd HH:mm:ss')::timestamp AS RsvpUtc
