@@ -1,0 +1,83 @@
+version: 2
+
+sources:
+  - name: meetup_dev
+    description: The database for development activities.
+    catalog: playground
+    schema: ufuk_meetup_dev
+    tables:
+      - name: events_bronze
+        description: The table shows detailed information about events.
+        columns:
+          - name: created
+            description: Description here.
+          - name: description
+            description: Description here.
+          - name: duration
+            description: Description here.
+          - name: group_id
+            description: Description here.
+          - name: name
+            description: Description here.
+          - name: rsvp_limit
+            description: Description here.
+          - name: rsvps
+            description: Description here.
+          - name: status
+            description: Description here.
+          - name: time
+            description: Description here.
+          - name: venue_id
+            description: Description here.
+
+      - name: groups_bronze
+        description: The table shows detailed information about groups.
+        columns:
+          - name: city
+            description: Description here.
+          - name: created
+            description: Description here.
+          - name: description
+            description: Description here.
+          - name: group_id
+            description: Description here.
+          - name: lat
+            description: Description here.
+          - name: link
+            description: Description here.
+          - name: lon
+            description: Description here.
+          - name: name
+            description: Description here.
+          - name: topics
+            description: Description here.
+
+      - name: users_bronze
+        description: The table shows detailed information about users.
+        columns:
+          - name: city
+            description: Description here.
+          - name: country
+            description: Description here.
+          - name: hometown
+            description: Description here.
+          - name: memberships
+            description: Description here.
+          - name: user_id
+            description: Description here.
+
+      - name: venues_bronze
+        description: The table shows detailed information about venues.
+        columns:
+          - name: VenueId
+            description: Description here.
+          - name: VenueName
+            description: Description here.
+          - name: City
+            description: Description here.
+          - name: Country
+            description: Description here.
+          - name: Lat
+            description: Description here.
+          - name: Lon
+            description: Description here.

@@ -1,0 +1,19 @@
+meetup_dbt:
+  target: dev
+  outputs:
+    dev:
+      catalog: playground
+      host: adb-5769108933149883.3.azuredatabricks.net
+      http_path: /sql/1.0/warehouses/aebcaaff2f9457a3
+      schema: ufuk_meetup_dev
+      threads: 10
+      token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
+      type: databricks
+    prod:
+      catalog: playground
+      host: adb-5769108933149883.3.azuredatabricks.net
+      http_path: /sql/1.0/warehouses/aebcaaff2f9457a3
+      schema: ufuk_meetup_prod
+      threads: 10
+      token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
+      type: databricks

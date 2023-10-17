@@ -1,0 +1,133 @@
+version: 2
+
+models:
+  - name: groups
+    description: The table shows detailed information about groups.
+    columns:
+      - name: GroupId
+        description: Unique identifier for groups.
+        tests:
+          - not_null
+          - unique
+      - name: GroupName
+        description: Name of the group.
+      - name: CratedUtc
+        description: Timestamp of when the group was created.
+      - name: Description
+        description: Description of the group.
+      - name: City
+        description: Name of the city where the group resides.
+      - name: Lat
+        description: Latitude of the place where the group resides.
+      - name: Lon
+        description: Longitude of the place where the group resides.
+      - name: Link
+        description: Link to the group's homepage.
+
+  - name: group_memberships
+    description: The table shows detailed information about memberships.
+    columns:
+      - name: MembershipId
+        description: Unique identifier for memberships.
+        tests:
+          - not_null
+          - unique
+      - name: UserId
+        description: A unique identifier for this user.
+      - name: GroupId
+        description: The unique identifier of the group that the user has joined.
+      - name: JoinedUtc
+        description: Timestamp of the moment the user joined this group.
+
+  - name: group_topics
+    description: The table shows detailed information about groups and their topics.
+    columns:
+      - name: GroupTopicId
+        description: Unique identifier for each group and topic combination.
+        tests:
+          - not_null
+          - unique
+      - name: GroupId
+        description: Unique identifier for memberships.
+      - name: Topics
+        description: The topics that the group is interested in.
+
+  - name: events
+    description: The table shows detailed information about events.
+    columns:
+      - name: EventId
+        description: Unique identifier for events.
+        tests:
+          - not_null
+          - unique
+      - name: GroupId
+        description: The unique identifier of the group that organised this event.
+      - name: VenueId
+        description: Unique identifier of the venue where this event takes place.
+      - name: EventName
+        description: The title of the event.
+      - name: CreatedUtc
+        description: Timestamp of the moment the event was created by the organiser.
+      - name: Description
+        description: The description of the event.
+      - name: RsvpLimit
+        description: The maximum number of YES RSVPs that this event allows.
+      - name: EventTime
+        description: The timestamp of when the event starts.
+      - name: Duration
+        description: The duration of the event, in hours.
+      - name: Status
+        description: The status of the event.
+
+  - name: users
+    description: The table shows detailed information about users.
+    columns:
+      - name: UserId
+        description: Unique identifier for groups.
+        tests:
+          - not_null
+          - unique
+      - name: City
+        description: City where the user resides.
+      - name: Country
+        description: Country where the user resides.
+      - name: Hometown
+        description: Town that the user specified as their home town.
+
+  - name: rsvps
+    description: The table shows detailed information about RSVPs.
+    columns:
+      - name: RsvpId
+        description: Unique identifier for RSVPs.
+        tests:
+          - not_null
+          - unique
+      - name: EventId
+        description: The unique identifier of the event.
+      - name: UserId
+        description: The unique identifier of the user that RSVPed for this event.
+      - name: Guests
+        description: If permitted, the number of guests that the user is planning to bring to the event.
+      - name: Response
+        description: True or False, the indication of whether this user will attend the event.
+      - name: RsvpUtc
+        description: Timestamp of the moment the user gave their RSVP.
+
+  - name: venues
+    description: The table shows detailed information about venues.
+    columns:
+      - name: VenueId
+        description: The unique identifier of the venue.
+        tests:
+          - not_null
+          - unique
+      - name: VenueName
+        description: The name of the venue.
+      - name: City
+        description: The city of the venue.
+      - name: Country
+        description: The country of the venue.
+      - name: Lat
+        description: Latitude of the venue.
+      - name: Lon
+        description: Longitude of the venue.
