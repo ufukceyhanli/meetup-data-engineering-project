@@ -1,4 +1,4 @@
-{% set import_venues = select_table(source('meetup_dev', 'venues_bronze'), ref('input_venues'))  % }}
+{% set import_venues = select_table(source('meetup_dev', 'venues_bronze'), ref('input_venues'))  %}
 
 {{
     config(
